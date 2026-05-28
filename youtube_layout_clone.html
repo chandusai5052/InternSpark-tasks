@@ -1,0 +1,70 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Layout Clone</title>
+    <style>
+        body { margin: 0; font-family: Roboto, Arial, sans-serif; display: flex; flex-direction: column; height: 100vh; background-color: #f9f9f9; }
+
+        /* Header */
+        header { height: 60px; background: #fff; display: flex; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #ddd; }
+
+        /* Category Chips */
+        .chips-container { height: 50px; background: #fff; display: flex; align-items: center; gap: 10px; padding: 0 20px; overflow-x: auto; border-bottom: 1px solid #ddd; }
+        .chip { background: #eee; padding: 6px 12px; border-radius: 15px; cursor: pointer; white-space: nowrap; font-size: 14px; }
+
+        /* Main Content */
+        .wrapper { display: flex; flex: 1; overflow: hidden; }
+        aside { width: 240px; padding: 15px; overflow-y: auto; background: #fff; }
+        main { flex: 1; padding: 20px; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+
+        /* Video Card Design */
+        .video-card { display: flex; flex-direction: column; }
+        .thumbnail { width: 100%; height: 160px; background: #ccc; border-radius: 12px; margin-bottom: 10px; }
+        .info { display: flex; gap: 10px; }
+        .avatar { width: 36px; height: 36px; border-radius: 50%; background: #bbb; flex-shrink: 0; }
+        .text h3 { margin: 0; font-size: 16px; }
+        .text p { margin: 4px 0 0; color: #606060; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <header><strong>YouTube Clone</strong></header>
+
+    <div class="chips-container">
+        <div class="chip">All</div>
+        <div class="chip">Music</div>
+        <div class="chip">Live</div>
+        <div class="chip">Gaming</div>
+        <div class="chip">JavaScript</div>
+    </div>
+
+    <div class="wrapper">
+        <aside>
+            <p>Home</p>
+            <p>Shorts</p>
+            <p>Subscriptions</p>
+        </aside>
+
+        <main id="videoGrid"></main>
+    </div>
+
+    <script>
+        const grid = document.getElementById('videoGrid');
+        for(let i = 1; i <= 12; i++) {
+            grid.innerHTML += `
+                <div class="video-card">
+                    <div class="thumbnail"></div>
+                    <div class="info">
+                        <div class="avatar"></div>
+                        <div class="text">
+                            <h3>Video Title ${i}</h3>
+                            <p>Channel Name<br>12k views • 2 hours ago</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
